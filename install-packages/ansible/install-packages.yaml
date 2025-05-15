@@ -1,0 +1,39 @@
+---
+- name: Install packages on machines
+  hosts: local
+  become: no
+  vars_files:
+    - vars/packages.yaml
+  vars:
+    install_pkg_mgr: false
+    run_post_tasks: false
+    install_errors: []
+
+  pre_tasks:
+    - name: Install package manager (apt) [Optional]
+      apt:
+        name: apt
+        state: latest
+      when: install_pkg_mgr
+
+  tasks:
+    - name: Install packages
+      apt:
+        name: "{{ item }}"
+        state: present
+        update_cache: yes
+      loop: "{{ packages }}"
+      register: pkg_results
+      failed_when: false
+
+    - name: Collect failed installs
+      set_fact:
+        install_errors: "{{ install_errors + [ item.item ] }}"
+      when: item.failed
+      loop: "{{ pkg_results.results }}"
+
+  post_tasks:
+    - name: Report failed installations [Optional]
+      debug:
+        msg: "The following packages failed to install: {{ install_errors }}"
+      when: "run_post_tasks and install_errors | length > 0"

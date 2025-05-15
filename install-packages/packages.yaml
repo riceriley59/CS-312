@@ -1,0 +1,8 @@
+# packages.yaml
+
+packages:
+  - curl
+  - wget
+  - vim
+  - git
+  - python
