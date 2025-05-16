@@ -13,7 +13,7 @@ In this tutorial we will overview how to go through and install a minecraft serv
 
 5. Now you have created a VPC (Virtual Private Cloud) for all our minecraft server resources, our EC2 box, to sit in and will allow us to configure specific traffic that can communicate with the server.
 
-## Configure the Security Group:
+## Configure the VPC's Security Group:
 
 6. After creating the VPC you should now be in the 'Your VPCs' section which is now displaying your newly created mincraft-server VPC. NOTE the VPC ID of your minecraft-server VPC as we'll need that to know which security group to modify.
 
@@ -118,4 +118,6 @@ sudo systemctl start minecraft.service
 
 ## Conclusion:
 
-Now you should have a working Minecraft server that is hosted in AWS that can be connected to via your EC2 boxes public IP or domain name which is pretty cool. To make this even better in the future you could make it so that the work is less manual and define the infrastructure through a cloud provisioning tool such as Terraform. Then you could scale your Minecraft server up to many more users and even add in some load balancing between multiple servers.
+Now you should have a working Minecraft server that is hosted in AWS that can be connected to via your EC2 boxes public IP or domain name which is pretty cool. If you are wondering how to get the public IP for your minecraft server just click on the Minecraft EC2 instance and you should see the 'Public IPv4 Address' listed.
+
+To make this even better in the future you could make it so that the work is less manual and define the infrastructure through a cloud provisioning tool such as Terraform. Then you could scale your Minecraft server up to many more users (horizontally or vertically) and even add in some load balancing between multiple servers.
