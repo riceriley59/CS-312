@@ -1,3 +1,7 @@
 [submodule "demo-github-actions"]
 	path = demo-github-actions
 	url = git@github.com:riceriley59/demo-github-actions.git
+
+[submodule "aws-minecraft-server"]
+    path = aws-minecraft-server
+    url = git@github.com:riceriley59/aws-minecraft-server.git
