@@ -116,8 +116,12 @@ sudo systemctl start minecraft.service
 
 ```
 
-## Conclusion:
+## Connecting to the Minecraft Server:
 
 Now you should have a working Minecraft server that is hosted in AWS that can be connected to via your EC2 boxes public IP or domain name which is pretty cool. If you are wondering how to get the public IP for your minecraft server just click on the Minecraft EC2 instance and you should see the 'Public IPv4 Address' listed.
 
-To make this even better in the future you could make it so that the work is less manual and define the infrastructure through a cloud provisioning tool such as Terraform. Then you could scale your Minecraft server up to many more users (horizontally or vertically) and even add in some load balancing between multiple servers.
+**NOTE:** You will also need to make sure you are connecting to the server with the same client version as the server. The script above uses the 1.21.5 version of Minecraft.
+
+## Conclusion:
+
+Good job on setting up the Minecraft server using AWS. To make this even better in the future you could make it so that the work is less manual and define the infrastructure through a cloud provisioning tool such as Terraform. Then you could scale your Minecraft server up to many more users (horizontally or vertically) and even add in some load balancing between multiple servers.
